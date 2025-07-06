@@ -7,7 +7,8 @@ def get_currency_widget():
         ("USDTRY=X", "USD/TRY"),
         ("EURTRY=X", "EUR/TRY"),
         ("GBPTRY=X", "GBP/TRY"),
-        ("GAUTRY=X", "Gram Altın")
+        ("XAUTRY=X", "Altın (ONS/TRY)")
+
     ]
     items = []
     for symbol, label in pairs:
