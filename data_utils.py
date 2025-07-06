@@ -42,15 +42,15 @@ def get_graphs(symbol):
 
     rsi_fig = go.Figure()
     rsi_fig.add_trace(go.Scatter(x=df.index, y=rs.where(rs.notna(), 0), mode='lines', name='RSI'))
-    rsi_fig.update_layout(height=300, margin=dict(t=10, b=10))
+    rsi_fig.update_layout(height=300, margin=dict(t=10, b=10), plot_bgcolor='#111', paper_bgcolor='#111', font=dict(color='white'))
 
     vol_fig = go.Figure()
     vol_fig.add_trace(go.Bar(x=df.index, y=df['Volume'], name='Hacim'))
-    vol_fig.update_layout(height=300, margin=dict(t=10, b=10))
+    vol_fig.update_layout(height=300, margin=dict(t=10, b=10), plot_bgcolor='#111', paper_bgcolor='#111', font=dict(color='white'))
 
     heat_fig = go.Figure()
     heat_fig.add_trace(go.Heatmap(z=[df['Close'].pct_change().fillna(0).tolist()], colorscale='RdBu'))
-    heat_fig.update_layout(height=300, margin=dict(t=10, b=10))
+    heat_fig.update_layout(height=300, margin=dict(t=10, b=10), plot_bgcolor='#111', paper_bgcolor='#111', font=dict(color='white'))
 
     return {
         "name": symbol,
