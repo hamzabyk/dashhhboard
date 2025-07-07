@@ -10,7 +10,7 @@ def get_currency_widget():
     items = []
     for symbol, label in pairs:
         try:
-            price = round(yf.Ticker(symbol).history(period="1d")["Close"][-1], 2)
+            price = round(yf.Ticker(symbol).history(period="1d")["Close"].iloc[-1], 2)
             items.append(html.Div(f"{label}: {price} ₺", className="text-white small"))
         except:
             items.append(html.Div(f"{label}: veri yok", className="text-danger small"))
