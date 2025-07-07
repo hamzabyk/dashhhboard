@@ -15,8 +15,8 @@ def load_bist100_data():
             df = yf.Ticker(symbol + ".IS").history(period="5d")
             if df.empty:
                 continue
-            price = round(df["Close"][-1], 2)
-            change = round(((df["Close"][-1] - df["Close"][-2]) / df["Close"][-2]) * 100, 2)
+            price = round(df["Close"].iloc[-1], 2)
+            change = round(((df["Close"].iloc[-1] - df["Close"].iloc[-2]) / df["Close"].iloc[-2]) * 100, 2)
             rows.append({"Sembol": symbol, "Şirket": name, "Fiyat": price, "Değişim %": change})
         except:
             continue
@@ -27,9 +27,9 @@ def get_graphs(symbol):
     if df.empty:
         return {"name": symbol, "price": 0, "change": 0, "volume": 0, "rsi": 0}, go.Figure(), go.Figure(), go.Figure()
 
-    price = round(df["Close"][-1], 2)
-    change = round(((df["Close"][-1] - df["Close"][-2]) / df["Close"][-2]) * 100, 2)
-    volume = int(df["Volume"][-1])
+    price = round(df["Close"].iloc[-1], 2)
+    change = round(((df["Close"].iloc[-1] - df["Close"].iloc[-2]) / df["Close"].iloc[-2]) * 100, 2)
+    volume = int(df["Volume"].iloc[-1])
 
     delta = df["Close"].diff()
     gain = delta.where(delta > 0, 0).rolling(14).mean()
