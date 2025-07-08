@@ -3,6 +3,23 @@ import yfinance as yf
 import pandas as pd
 import plotly.graph_objs as go
 
+def get_bist30_index_figure():
+    try:
+        df = yf.download("^XU030", period="1mo", interval="1d")  # BIST30 Endeksi
+        fig = go.Figure()
+        fig.add_trace(go.Scatter(x=df.index, y=df["Close"], mode="lines", name="BIST30"))
+        fig.update_layout(
+            title="BIST 30 Endeksi (XU030)",
+            xaxis_title="Tarih",
+            yaxis_title="Kapanış Fiyatı",
+            template="plotly_dark",
+            height=300
+        )
+        return fig
+    except Exception as e:
+        print("BIST30 veri hatası:", e)
+        return go.Figure()
+        
 def load_bist100_data():
     symbols = [
         ("AKBNK", "Akbank"),
