@@ -5,10 +5,38 @@ import plotly.graph_objs as go
 
 def load_bist100_data():
     symbols = [
-        ("ASELS", "Aselsan"), ("THYAO", "Türk Hava Yolları"), ("SISE", "Şişecam"),
-        ("KRDMD", "Kardemir"), ("GARAN", "Garanti BBVA"), ("AKBNK", "Akbank"),
-        ("FROTO", "Ford Otosan"), ("EREGL", "Ereğli Demir Çelik"), ("KCHOL", "Koç Holding")
+        ("AKBNK", "Akbank"),
+        ("ARCLK", "Arçelik"),
+        ("ASELS", "Aselsan"),
+        ("BIMAS", "Bim"),
+        ("EKGYO", "Emlak GYO"),
+        ("EREGL", "Ereğli Demir Çelik"),
+        ("FROTO", "Ford Otosan"),
+        ("GARAN", "Garanti BBVA"),
+        ("GUBRF", "Gübretaş"),
+        ("HEKTS", "Hektaş"),
+        ("ISCTR", "İş Bankası"),
+        ("KCHOL", "Koç Holding"),
+        ("KRDMD", "Kardemir D"),
+        ("KOZAA", "Koza Altın"),
+        ("KOZAL", "Koza Madencilik"),
+        ("PGSUS", "Pegasus"),
+        ("PETKM", "Petkim"),
+        ("SAHOL", "Sabancı Holding"),
+        ("SASA", "Sasa Polyester"),
+        ("SISE", "Şişecam"),
+        ("TCELL", "Turkcell"),
+        ("THYAO", "THY"),
+        ("TKFEN", "Tekfen"),
+        ("TOASO", "Tofaş"),
+        ("TUPRS", "Tüpraş"),
+        ("VAKBN", "Vakıfbank"),
+        ("YKBNK", "Yapı Kredi"),
+        ("TAVHL", "TAV Havalimanları"),
+        ("ALARK", "Alarko"),
+        ("ENKAI", "Enka İnşaat")
     ]
+
     rows = []
     for symbol, name in symbols:
         try:
