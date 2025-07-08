@@ -101,3 +101,20 @@ def get_graphs(symbol):
         "volume": volume,
         "rsi": rsi
     }, rsi_fig, vol_fig, heat_fig
+
+def load_bist30_index_graph():
+    df = pd.read_csv("data/bist30.csv", parse_dates=["Tarih"])
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=df["Tarih"], y=df["Kapanış"], mode="lines", name="BIST30"))
+    fig.update_layout(
+        title="📈 BIST30 Endeksi",
+        paper_bgcolor="#1a1a1a",
+        plot_bgcolor="#1a1a1a",
+        font=dict(color="#FFFFFF"),
+        margin=dict(l=20, r=20, t=40, b=20),
+        height=300
+    )
+    return fig
+
+
+
