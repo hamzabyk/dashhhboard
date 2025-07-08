@@ -33,8 +33,7 @@ bist30_fig.update_layout(
 
 
 app.layout = dbc.Container([
-    
-    dcc.Graph(figure=bist30_fig, id="bist30-endeks-grafik", style={"marginBottom": "2rem"})
+    dcc.Graph(figure=bist30_fig, id="bist30-endeks-grafik", style={"marginBottom": "2rem"}),  # ← BU SATIR ARTIK DOĞRU
 
     dbc.Row([
         dbc.Col([
@@ -52,8 +51,10 @@ app.layout = dbc.Container([
             ])
         ], width=9)
     ]),
+
     html.Div(get_currency_widget(), style={"position": "fixed", "bottom": "10px", "right": "20px", "zIndex": "999"})
 ], fluid=True)
+
 
 @app.callback(
     Output("stock-list", "children"),
