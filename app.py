@@ -33,6 +33,7 @@ bist30_fig.update_layout(
 
 
 app.layout = dbc.Container([
+    
     dcc.Graph(figure=bist30_fig, id="bist30-endeks-grafik", style={"marginBottom": "2rem"})
 
     dbc.Row([
