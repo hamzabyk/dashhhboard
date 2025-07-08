@@ -13,7 +13,28 @@ server = app.server
 
 data = load_bist100_data()
 
+# BIST 30 endeksi (XU030.IS) grafiği için veri
+import yfinance as yf
+bist30_index = yf.download("XU030.IS", period="1mo")
+
+bist30_fig = go.Figure()
+bist30_fig.add_trace(go.Scatter(
+    x=bist30_index.index,
+    y=bist30_index["Close"],
+    mode="lines",
+    name="BIST 30 Endeksi"
+))
+bist30_fig.update_layout(
+    title="BIST 30 Endeks Grafiği (Son 30 Gün)",
+    template="plotly_dark",
+    margin=dict(l=40, r=20, t=50, b=40),
+    height=300
+)
+
+
 app.layout = dbc.Container([
+    dcc.Graph(figure=bist30_fig, id="bist30-endeks-grafik", style={"marginBottom": "2rem"})
+
     dbc.Row([
         dbc.Col([
             html.H4("📋 Hisseler", className="text-white mb-3"),
