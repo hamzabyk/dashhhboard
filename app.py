@@ -6,6 +6,8 @@ import plotly.graph_objs as go
 import os
 from data_utils import load_bist100_data, get_graphs
 from currency_widget import get_currency_widget
+from data_utils import get_bist30_index_figure
+
 
 external_stylesheets = [dbc.themes.CYBORG]
 app = Dash(__name__, external_stylesheets=external_stylesheets)
@@ -30,6 +32,8 @@ bist30_fig.update_layout(
     margin=dict(l=40, r=20, t=50, b=40),
     height=300
 )
+
+bist30_fig = get_bist30_index_figure()
 
 
 app.layout = dbc.Container([
